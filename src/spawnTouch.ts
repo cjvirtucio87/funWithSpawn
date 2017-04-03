@@ -1,13 +1,14 @@
+// constants
 import { FOLDER_NAME, RESULTS_NAME, RESULTS_FILETYPE } from './constants';
 import { SPAWN_TOUCH } from './config';
-import { spawn } from 'child_process';
+
+// child process utils
+import { ls, mkdir, rmdir, touch } from './spawnFactory';
+import { cpFactory } from './cpFactory';
+
+// IO utils
 import { createWriteStream } from 'fs';
 import { sep } from 'path';
-
-const ls = (...args: any[]) => spawn('ls', args);
-const rmdir = (...args: any[]) => spawn('rmdir', args);
-const mkdir = (...args: any[]) => spawn('mkdir', args);
-const touch = (...args: any[]) => spawn('touch', args);
 
 function onWrite() {
   console.log('Done.');
