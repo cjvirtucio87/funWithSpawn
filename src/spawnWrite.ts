@@ -21,5 +21,10 @@ const writeFile = cpFactory('Writing file.', ls.bind(this, '-a'), (cp: any) => {
 export default function spawnWrite() {
   console.log('BEGIN: spawnWrite');
   console.time('Total spawnWrite');
-  cleanUp(makeFolder.bind(this, writeFile.bind(this, () => console.timeEnd('Total spawnWrite'))));
+  cleanUp(
+    makeFolder.bind(this, 
+    writeFile.bind(this, 
+    () => console.timeEnd('Total spawnWrite')
+    ))
+  );
 }
