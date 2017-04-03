@@ -8,7 +8,7 @@ import { cpFactory } from './cpFactory';
 
 // IO utils
 import { createWriteStream } from 'fs';
-import { sep, join } from 'path';
+import { sep } from 'path';
 
 // child processes
 const cleanUp = cpFactory('Cleaning up.', rmdir);
