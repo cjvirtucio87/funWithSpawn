@@ -8,7 +8,7 @@ import { cpFactory } from './cpFactory';
 
 // IO utils
 import { createWriteStream } from 'fs';
-import { sep, join } from 'path';
+import { join } from 'path';
 
 const TARGET_FILE = join(FOLDER_NAME, RESULTS_NAME + RESULTS_FILETYPE);
 
@@ -17,7 +17,7 @@ const cleanUp = cpFactory('Cleaning up.', rmdir);
 const makeFolder = cpFactory('Making folder.', mkdir.bind(this, FOLDER_NAME));
 const touchFile = cpFactory('Creating file.', touch.bind(this, TARGET_FILE))
 const writeFile = cpFactory('Writing file.', ls.bind(this, '-a'), (cp: any) => {
-  const os = createWriteStream(`${FOLDER_NAME}${sep}${RESULTS_NAME}${RESULTS_FILETYPE}`, SPAWN_WRITE.wsConfig);
+  const os = createWriteStream(TARGET_FILE, SPAWN_WRITE.wsConfig);
   cp.stdout.pipe(os);
 });
 
